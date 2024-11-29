@@ -1,10 +1,19 @@
-import useTodoStore from "@/stores/todoStore";
+import { useQuery } from "@tanstack/vue-query";
+import useTodoService from "../services/todoService";
 
 const useTodos = () => {
-  const todoStore = useTodoStore();
-  const { todos, total, doneTotal } = storeToRefs(todoStore);
+  const todoService = useTodoService();
 
-  return { todos, total, doneTotal, todoStore };
+  const { data, refetch, isLoading } = useQuery({
+    queryKey: ["todos"],
+    queryFn: todoService.finAll,
+  });
+
+  return {
+    todos: data,
+    isLoading,
+    refetch,
+  };
 };
 
 export default useTodos;

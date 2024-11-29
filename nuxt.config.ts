@@ -16,6 +16,14 @@ export default defineNuxtConfig({
     },
   },
   components: ["@/components"],
+  plugins: ["@/plugins/vue-query.ts", "@/plugins/axios.ts"],
+  runtimeConfig: {
+    public: {
+      http: {
+        baseURL: "http://localhost:3001",
+      },
+    },
+  },
   dir: {
     layouts: "./src/layouts",
     pages: "./src/pages",

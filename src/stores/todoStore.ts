@@ -10,7 +10,7 @@ const todoStore = defineStore("todo", {
   }),
   getters: {
     total: (state) => state.todos.length,
-    doneTotal: (state) => state.todos.filter((todo) => todo.done).length,
+    // doneTotal: (state) => state.todos.filter((todo) => todo.done).length,
   },
   actions: {
     addTodo(todo: TodoItem) {
@@ -23,12 +23,12 @@ const todoStore = defineStore("todo", {
       return this.todos.map((item) => (item.id === todo.id ? todo : item));
     },
     checkAll(checked: boolean) {
-      this.todos.forEach((todo) => {
-        todo.done = checked;
-      });
+    //   this.todos.forEach((todo) => {
+    //     todo.done = checked;
+    //   });
     },
     clearChecked() {
-      this.todos = this.todos.filter((todo) => !todo.done);
+    //   this.todos = this.todos.filter((todo) => !todo.done);
     },
   },
   persist: true,
